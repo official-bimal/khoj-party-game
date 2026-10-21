@@ -9,8 +9,8 @@ Dashboard: https://dashboard.render.com/web/srv-dbc36uu1egvs739be0tg
 - Provider: Render; plan: free; region: Singapore; one web instance.
 - Workspace: My Workspace, explicitly selected by the owner.
 - Service ID: srv-dbc36uu1egvs739be0tg.
-- Final deployment ID: dep-dbc371t5rp0s73eem22g, confirmed live.
-- Application commit: c5ba6b0f57c94f9d7a6d62f153f4e3dabea7227b.
+- Final deployment ID: dep-dbc3e44s728c73ds0rlg, confirmed live.
+- Application commit: 82a0fa4fa1cf9319f03ac5fd4faa4bc7ffe06199.
 - Build: npm ci --include=dev && npm run build.
 - Start: npm start -- --hostname 0.0.0.0 (Render PORT supplied automatically).
 - Node: 24.19.0; APP_ORIGIN: https://khoj-party-game.onrender.com.
@@ -40,3 +40,11 @@ npm run test:e2e -- e2e/online.spec.ts --grep 'three browsers|rejects unauthenti
 ```
 
 Do not run the known local admin-token test against the live deployment. Documentation-only commits use [skip render] to avoid restarting temporary rooms unnecessarily.
+
+## Visual refinement update — 21 October 2026
+
+The owner requested a more natural, refined presentation and a linked footer credit. The live update uses warmer charcoal/peach/paper colors, self-hosted Manrope typography, less decorative label clutter, conversational Nepali copy and readable mobile instructions. The original mascot and game flows remain. Every page ends with “Designed and developed by Bimal Bhandari”, linking to https://www.instagram.com/bimalbhandari_/ in a new tab with noopener/noreferrer. The offline shell version is v2.
+
+Validation: lint, TypeScript and production build pass; all 12 local browser tests pass, including game modes/offline/multiplayer and the credit target. Two additional checks passed against the live HTTPS site: desktop homepage/credit and every public screen at 360px plus language switching. Desktop and mobile screenshots were visually reviewed.
+
+For this public-repository connection, pushing the commit did not automatically start a deploy despite the configured auto-deploy flag. After confirming no queued deployment, an explicit deploy released the verified commit. For future updates, inspect the deployment list and confirm the target commit becomes live. No paid plan, domain, database or unrelated service was changed.
