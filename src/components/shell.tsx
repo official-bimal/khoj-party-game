@@ -120,11 +120,21 @@ export function Shell({ children }: { children: React.ReactNode }) {
         <Link className="brand footer-brand" href="/">
           KHOJ<span className="brand-dot">.</span>
         </Link>
-        <span>Made for the “la, ek round ajhai” people.</span>
+        <span className="footer-message" lang="ne">
+          फेरि एक राउन्ड?
+        </span>
         <Link href="/rules">
           <BookOpen size={14} /> Rules & fair play
         </Link>
-        <span className="footer-ne">साथीहरूसँग, जहाँ पनि।</span>
+        <div className="footer-credit">
+          <a
+            href="https://www.instagram.com/bimalbhandari_/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Designed and developed by <span>Bimal Bhandari</span>
+          </a>
+        </div>
       </footer>
     </>
   );

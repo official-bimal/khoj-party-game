@@ -1,4 +1,4 @@
-const VERSION = "khoj-shell-v1";
+const VERSION = "khoj-shell-v2";
 const PAGES = [
   "/",
   "/play",

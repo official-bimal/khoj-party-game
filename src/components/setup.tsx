@@ -78,11 +78,8 @@ export function Setup() {
     <section id="setup" className="setup-wrap">
       <div className="section-heading">
         <div>
-          <span className="eyebrow">THE GROUP CHAT CAN WAIT</span>
-          <h2>
-            {t("setup")}
-            <span className="coral">.</span>
-          </h2>
+          <span className="section-note">Sathi haru ready?</span>
+          <h2>{t("setup")}</h2>
         </div>
         <button className="text-button" onClick={() => start(true)}>
           <Shuffle size={16} />
@@ -97,7 +94,6 @@ export function Setup() {
         >
           <Smartphone size={18} />
           {t("classic")}
-          <span className="mini-tag">OFFLINE</span>
         </button>
         <button
           role="tab"
@@ -130,7 +126,7 @@ export function Setup() {
             <div className="setting-label">
               <Users size={18} />
               <label>{t("players")}</label>
-              <span>03–20</span>
+              <span>3–20</span>
             </div>
             <div className="stepper">
               <button
@@ -173,7 +169,6 @@ export function Setup() {
             <div className="setting-label">
               <Eye size={18} />
               <label>{t("imposters")}</label>
-              <span>SHHH…</span>
             </div>
             <div className="stepper">
               <button
@@ -198,7 +193,6 @@ export function Setup() {
             <div className="setting-label">
               <Shuffle size={18} />
               <label>{t("categories")}</label>
-              <span>MIX IT UP</span>
             </div>
             <button
               className="select-box"
@@ -210,14 +204,11 @@ export function Setup() {
                     ? `${s.categories.length} selected`
                     : t("all")}
                 </strong>
-                <span>From momo to mountains</span>
+                <span>Food, places, people & everyday things</span>
               </div>
               <ChevronDown size={18} />
             </button>
             <div className="category-dots">
-              <span className="dot coral-bg" />
-              <span className="dot mint-bg" />
-              <span className="dot yellow-bg" />
               <span>30 Nepali-first categories</span>
             </div>
           </div>
@@ -329,8 +320,7 @@ export function Setup() {
           <ArrowRight size={19} />
         </button>
         <p className="setup-note">
-          <span className="status-dot" />
-          No downloads. No sign-ups. Just suspicious friends.
+          Phone pass gare pugchha. Download garnu pardaina.
         </p>
       </div>
       {panel && (

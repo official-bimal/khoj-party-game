@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Shell } from "@/components/shell";
+import "@fontsource-variable/manrope";
 import "./globals.css";
 export const metadata: Metadata = {
   title: { default: "KHOJ — Sathi ho ki imposter?", template: "%s | KHOJ" },

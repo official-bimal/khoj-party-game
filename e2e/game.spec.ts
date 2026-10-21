@@ -133,6 +133,15 @@ test("offline shell launches and completes a three-player game", async ({
 });
 test("homepage desktop screenshot", async ({ page }) => {
   await page.goto("/");
+  const credit = page.getByRole("link", {
+    name: "Designed and developed by Bimal Bhandari",
+    exact: true,
+  });
+  await expect(credit).toHaveAttribute(
+    "href",
+    "https://www.instagram.com/bimalbhandari_/",
+  );
+  await expect(credit).toHaveAttribute("target", "_blank");
   await page.screenshot({
     path: "test-results/home-desktop.png",
     fullPage: true,
@@ -152,6 +161,12 @@ test("all public screens fit 360px and Devanagari controls switch instantly", as
     "/admin",
   ]) {
     await page.goto(route);
+    await expect(
+      page.getByRole("link", {
+        name: "Designed and developed by Bimal Bhandari",
+        exact: true,
+      }),
+    ).toBeVisible();
     await expect(page.getByRole("heading", { level: 1 }).first()).toBeVisible();
     expect(
       await page.evaluate(

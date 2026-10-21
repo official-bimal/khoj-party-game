@@ -1,133 +1,112 @@
-import {
-  ArrowDown,
-  Check,
-  Globe2,
-  ShieldCheck,
-  Smartphone,
-  Sparkles,
-  Users,
-} from "lucide-react";
+import { ArrowDown, ArrowUpRight, Users } from "lucide-react";
 import { Setup } from "@/components/setup";
 import { Mascot } from "@/components/mascot";
 import Link from "next/link";
 import { Experience } from "@/components/experience";
+
 export default function Home() {
   return (
     <Experience>
       <div className="home">
         <section className="hero">
           <div className="hero-copy">
-            <div className="pill">
-              <span className="status-dot" /> NEPALI ROOTS. SUSPICIOUS FRIENDS.
-            </div>
+            <p className="hero-kicker" lang="ne">
+              चिया सेलाउन्जेल, एक राउन्ड?
+            </p>
             <h1>
               Sathi ho ki
               <br />
               <span>imposter?</span>
-              <span className="title-star">✳</span>
             </h1>
-            <p>
-              Euta secret word. Dherai innocent faces.
+            <p className="hero-description">
+              Sabailai word thaha chha. Ek jana lai chhaina.
               <br />
-              Timro group ko sabai bhanda thulo guffadi ko ho?
+              Aba sathi ko kura sunera, guffadi patta lagau.
             </p>
             <div className="hero-actions">
               <a href="#setup" className="primary">
-                La, khelum! <ArrowDown size={18} />
+                La, khelum! <ArrowDown size={18} aria-hidden="true" />
               </a>
               <Link href="/rules" className="secondary">
-                How to play <span>↗</span>
+                How to play <ArrowUpRight size={16} aria-hidden="true" />
               </Link>
             </div>
-            <div className="hero-proof">
-              <span className="avatars">
-                <i>S</i>
-                <i>A</i>
-                <i>B</i>
-                <i>?</i>
+            <div className="table-details">
+              <Users size={16} aria-hidden="true" />
+              <span>
+                3–20 friends{" "}
+                <span className="detail-divider" aria-hidden="true">
+                  /
+                </span>{" "}
+                One phone or online
               </span>
-              <div>
-                <strong>Good friends. Great liars.</strong>
-                <span>3–20 players · Ages 6+ · Unlimited drama</span>
-              </div>
             </div>
           </div>
-          <div className="hero-art">
-            <div className="art-label">
-              <span className="status-dot" /> TRUST NO ONE. EXCEPT THE VIBES.
-            </div>
+          <figure className="hero-art">
+            <span className="art-label">Hamrai group ko khel.</span>
             <span className="speech speech-left">Ma ta innocent ho!</span>
-            <span className="speech speech-right">…sure ho?</span>
+            <span className="speech speech-right">Ho ra?</span>
             <Mascot />
-            <div className="art-bottom">
-              <span className="art-rule" />
-              <span>EVERY GROUP HAS ONE.</span>
-              <span className="art-rule" />
-            </div>
-            <span className="art-spark">✳</span>
-            <span className="art-index">01 / SUSPECT FILES</span>
-          </div>
+            <figcaption className="art-bottom">
+              Yo smile lai chai napattau.
+            </figcaption>
+          </figure>
         </section>
-        <div className="benefit-strip">
-          <span>
-            <Smartphone size={17} />
-            <strong>One phone. Whole gang.</strong>
-          </span>
-          <span>
-            <Globe2 size={17} />
-            Nepali words, global fun
-          </span>
-          <span>
-            <ShieldCheck size={17} />
-            Free to play, always
-          </span>
-          <span>
-            <Check size={17} />
-            Works offline
-          </span>
-        </div>
         <Setup />
-        <section className="how-strip">
-          <div>
-            <span className="eyebrow">SMALL RULES. BIG SUSPICIONS.</span>
-            <h2>Teen steps. Full drama.</h2>
+        <section className="how-to" aria-labelledby="how-heading">
+          <div className="how-intro">
+            <div>
+              <p className="section-note">Pahilo patak ho?</p>
+              <h2 id="how-heading">Ek round mai bujhinchha.</h2>
+            </div>
             <Link href="/rules">
-              Get the whole story <span>↗</span>
+              Read the rules <ArrowUpRight size={16} aria-hidden="true" />
             </Link>
           </div>
-          <article>
-            <span className="step-number">01</span>
-            <Smartphone />
-            <h3>Hera. Lukau. Pass gara.</h3>
-            <p>
-              Check your secret card. Everyone knows the word. Well, almost
-              everyone.
-            </p>
-          </article>
-          <article>
-            <span className="step-number">02</span>
-            <Users />
-            <h3>Clue deu. Guff hana.</h3>
-            <p>
-              Give one subtle clue. The imposter has to blend in. Listen for the
-              bluff.
-            </p>
-          </article>
-          <article>
-            <span className="step-number">03</span>
-            <Sparkles />
-            <h3>Shanka gara. Vote gara.</h3>
-            <p>
-              Point out the imposter. Or watch your most innocent friend fool
-              everyone.
-            </p>
-          </article>
+          <ol className="how-steps">
+            <li>
+              <span className="step-number" aria-hidden="true">
+                01
+              </span>
+              <h3>Card hera, ani lukau.</h3>
+              <p>
+                Check your word in private, then pass the phone. The imposter
+                has to work with a blank card.
+              </p>
+            </li>
+            <li>
+              <span className="step-number" aria-hidden="true">
+                02
+              </span>
+              <h3>Palai palo clue deu.</h3>
+              <p>
+                Say a little, listen a lot. Give a clue that makes sense without
+                giving the whole word away.
+              </p>
+            </li>
+            <li>
+              <span className="step-number" aria-hidden="true">
+                03
+              </span>
+              <h3>Kaslai shanka lagyo?</h3>
+              <p>
+                Talk it out and vote. If you catch the imposter, they get one
+                last chance to guess the word.
+              </p>
+            </li>
+          </ol>
         </section>
-        <div className="nepal-note">
-          <span>LOCALLY FLAVOURED. ENDLESSLY REPLAYABLE.</span>
-          <p>Momo dekhi Machhapuchhre samma.</p>
+        <div className="library-note">
+          <p>
+            Momo, madal, Machhapuchhre…
+            <br />
+            <span>
+              Words you grew up with. Friends you know a little too well.
+            </span>
+          </p>
           <Link href="/library">
-            Explore the word library <span>↗</span>
+            See what’s in the word list{" "}
+            <ArrowUpRight size={16} aria-hidden="true" />
           </Link>
         </div>
       </div>
