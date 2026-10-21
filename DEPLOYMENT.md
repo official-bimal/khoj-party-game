@@ -1,6 +1,6 @@
 # Deployment readiness
 
-Nothing has been deployed or provisioned. User approval is required before deployment or paid infrastructure.
+The user authorized a free Render preview after implementation. See docs/LIVE_DEPLOYMENT.md for its status and configuration. No paid upgrade or custom domain is authorized.
 
 1. Provision a PostgreSQL database you control. Set DATABASE_URL server-side, APP_ORIGIN to the exact HTTPS origin, NEXT_PUBLIC_APP_NAME as desired, and a long random ADMIN_TOKEN. Never prefix secrets with NEXT_PUBLIC_.
 2. `npm ci`, `npm run db:generate`, `npm run db:migrate`, `npm run db:seed`. Export DATABASE_URL for the Prisma CLI. Review migration SQL before running it against real data.

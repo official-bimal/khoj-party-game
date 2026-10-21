@@ -25,4 +25,4 @@ Screenshots: `test-results/home-desktop.png`, `test-results/home-mobile.png`, `t
 
 Limits: browser tests use a single Node process and persistent local file adapter. A live PostgreSQL service was unavailable; production migration/seed, multi-instance transactions, load and backup/restore are not verified. No claim of independent penetration testing, screen-reader certification, Safari/iOS/Android install validation, complete secondary-copy localization, or independently reviewed seed content. Local successful tests do not constitute production readiness.
 
-No deployment, paid service, external account or DNS change was performed.
+The original implementation checks above preceded hosting. See docs/LIVE_DEPLOYMENT.md for the subsequent user-authorized free Render deployment. No paid service or DNS change was requested.

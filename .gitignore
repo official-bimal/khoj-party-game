@@ -6,3 +6,5 @@ test-results/
 playwright-report/
 *.tsbuildinfo
 .data/
+docs/github-verification.png
+docs/live-preview.png

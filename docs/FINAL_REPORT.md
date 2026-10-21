@@ -1,5 +1,7 @@
 # KHOJ implementation report
 
+Hosting update: the owner subsequently authorized a free public preview at https://khoj-party-game.onrender.com. See [LIVE_DEPLOYMENT.md](LIVE_DEPLOYMENT.md) for verified status and temporary-room limits. The implementation report below records the original local delivery.
+
 ## What is built
 
 A functional Next.js application in `C:\Users\user\Desktop\khoj`. It is locally built and tested; no external hosting, paid infrastructure, DNS or deployment was used.
