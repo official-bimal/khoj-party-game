@@ -1,0 +1,11 @@
+# Word library
+
+Actual starter count: **252 distinct canonical entries across 30 populated categories**. Approved/human-reviewed starter count: **0**. The content is AI-authored draft vocabulary, not a sourced research dataset. No claim of a 2,000-entry verified library. Famous names and cultural spellings need a Nepali editor before public launch. English labels for names/terms usually retain their familiar Roman form rather than translate proper nouns.
+
+Each entry supports ID, canonical, Devanagari, Roman, English, aliases, category IDs, difficulty, spoiler-safe hint, region, age, provenance, review status/reviewer, active state, version, popularity, play count, last played and related word. The starter distribution is easy/medium; hard is intentionally empty. Category coverage and difficulty counts can be reproduced with `npm run content:audit`; `/library` reports live counts.
+
+`npm run content:audit -- path/to/pack.csv` validates an external file and prints coverage. CSV headers: `canonical,ne,roman,en,hint`; RFC-style quoted commas, newlines and doubled quotes are supported. JSON uses the full Zod entry schema. Maximum 10,000 entries and 1 MB in UI/API. Normalize NFKC for comparison, NFC for display; compare punctuation/whitespace-insensitively. Canonical and alias collisions across entries are rejected atomically. Custom pack editing remains local. File imports become drafts even if a supplied file claims approval.
+
+Admin process: unlock `/admin`, import/edit drafts, enter reviewer identity, approve/reject individually, publish a versioned snapshot, then `/library` → Update offline packs. Existing installed clients keep their cached pack until they request an update. Themed packs currently mix broad categories, not exact theme membership; names are convenience presets and should be refined with editorial memberships.
+
+At scale: migrate runtime content selection to normalized indexed tables, cursor pagination, dedicated provenance URLs/licenses, and versioned category downloads. Never bundle 100,000 words in initial JS. Source/licensing checks and independent review are release gates. Repetition tracking is local/room-level; global play-count analytics are not implemented.

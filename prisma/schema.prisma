@@ -1,0 +1,172 @@
+generator client {
+  provider = "prisma-client-js"
+}
+datasource db {
+  provider = "postgresql"
+}
+// Runtime aggregates are transactionally locked. Normalized content tables below
+// are the expansion/import target; no misleading claim that they are populated.
+model StateDocument {
+  id String @id
+  state Json
+  updatedAt DateTime @default(now()) @updatedAt
+}
+model Category {
+  id String @id
+  name String @unique
+  parentId String?
+  parent Category? @relation("CategoryTree",fields:[parentId],references:[id])
+  children Category[] @relation("CategoryTree")
+  words WordCategory[]
+}
+model WordEntry {
+  id String @id
+  canonical String
+  normalized String @unique
+  difficulty String
+  hint String?
+  description String?
+  region String
+  age Int @default(6)
+  status String @default("draft")
+  active Boolean @default(true)
+  version Int @default(1)
+  popularity Float @default(1)
+  playCount Int @default(0)
+  lastPlayed DateTime?
+  related String?
+  sourceId String?
+  source ContentSource? @relation(fields:[sourceId],references:[id])
+  translations WordTranslation[]
+  aliases Alias[]
+  categories WordCategory[]
+  packs PackMembership[]
+  reviews ContentReview[]
+  reports ContentReport[]
+  @@index([status,active,difficulty])
+}
+model WordTranslation {
+  wordId String
+  language String
+  text String
+  word WordEntry @relation(fields:[wordId],references:[id],onDelete:Cascade)
+  @@id([wordId,language])
+}
+model Alias {
+  id String @id @default(cuid())
+  text String
+  normalized String @unique
+  wordId String
+  word WordEntry @relation(fields:[wordId],references:[id],onDelete:Cascade)
+}
+model WordCategory {
+  wordId String
+  categoryId String
+  word WordEntry @relation(fields:[wordId],references:[id],onDelete:Cascade)
+  category Category @relation(fields:[categoryId],references:[id],onDelete:Cascade)
+  @@id([wordId,categoryId])
+  @@index([categoryId,wordId])
+}
+model WordPack {
+  id String @id
+  name String
+  version Int @default(1)
+  publishedAt DateTime?
+  words PackMembership[]
+}
+model PackMembership {
+  packId String
+  wordId String
+  pack WordPack @relation(fields:[packId],references:[id],onDelete:Cascade)
+  word WordEntry @relation(fields:[wordId],references:[id],onDelete:Cascade)
+  @@id([packId,wordId])
+}
+model ContentSource {
+  id String @id
+  name String
+  url String?
+  license String?
+  words WordEntry[]
+}
+model ContentReview {
+  id String @id @default(cuid())
+  wordId String
+  word WordEntry @relation(fields:[wordId],references:[id],onDelete:Cascade)
+  reviewer String
+  decision String
+  note String?
+  createdAt DateTime @default(now())
+}
+model ContentReport {
+  id String @id @default(cuid())
+  wordId String
+  word WordEntry @relation(fields:[wordId],references:[id],onDelete:Cascade)
+  reason String
+  resolved Boolean @default(false)
+  createdAt DateTime @default(now())
+}
+model GameRoom {
+  id String @id
+  code String @unique
+  hostId String
+  expiresAt DateTime
+  participants RoomParticipant[]
+  rounds GameRound[]
+  @@index([expiresAt])
+}
+model RoomParticipant {
+  id String @id
+  roomId String
+  room GameRoom @relation(fields:[roomId],references:[id],onDelete:Cascade)
+  nickname String
+  tokenHash String @unique
+  lastSeen DateTime
+  roles RoleAssignment[]
+  votes Vote[]
+  scores Score[]
+  @@unique([roomId,nickname])
+}
+model GameRound {
+  id String @id
+  roomId String
+  room GameRoom @relation(fields:[roomId],references:[id],onDelete:Cascade)
+  phase String
+  secretWordId String
+  deadline DateTime?
+  roles RoleAssignment[]
+  votes Vote[]
+  scores Score[]
+}
+model RoleAssignment {
+  roundId String
+  participantId String
+  imposter Boolean
+  round GameRound @relation(fields:[roundId],references:[id],onDelete:Cascade)
+  participant RoomParticipant @relation(fields:[participantId],references:[id],onDelete:Cascade)
+  @@id([roundId,participantId])
+}
+model Vote {
+  roundId String
+  participantId String
+  targetId String?
+  round GameRound @relation(fields:[roundId],references:[id],onDelete:Cascade)
+  participant RoomParticipant @relation(fields:[participantId],references:[id],onDelete:Cascade)
+  @@id([roundId,participantId])
+}
+model Score {
+  roundId String
+  participantId String
+  points Int
+  mode String
+  round GameRound @relation(fields:[roundId],references:[id],onDelete:Cascade)
+  participant RoomParticipant @relation(fields:[participantId],references:[id],onDelete:Cascade)
+  @@id([roundId,participantId])
+}
+model AuditLog {
+  id String @id @default(cuid())
+  actor String
+  action String
+  target String
+  createdAt DateTime @default(now())
+  @@index([createdAt])
+}

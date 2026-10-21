@@ -1,0 +1,280 @@
+
+> khoj@1.0.0 content:audit
+> tsx scripts/content-audit.ts
+
+{
+  "entries": 252,
+  "approved": 0,
+  "categories": [
+    {
+      "name": "Nepali Food",
+      "total": 12,
+      "difficulty": {
+        "easy": 10,
+        "medium": 2,
+        "hard": 0
+      }
+    },
+    {
+      "name": "Nepali Street Food",
+      "total": 8,
+      "difficulty": {
+        "easy": 7,
+        "medium": 1,
+        "hard": 0
+      }
+    },
+    {
+      "name": "Nepali Drinks",
+      "total": 8,
+      "difficulty": {
+        "easy": 7,
+        "medium": 1,
+        "hard": 0
+      }
+    },
+    {
+      "name": "Nepali Celebrities",
+      "total": 6,
+      "difficulty": {
+        "easy": 5,
+        "medium": 1,
+        "hard": 0
+      }
+    },
+    {
+      "name": "Nepali Actors and Actresses",
+      "total": 8,
+      "difficulty": {
+        "easy": 7,
+        "medium": 1,
+        "hard": 0
+      }
+    },
+    {
+      "name": "Nepali Singers",
+      "total": 8,
+      "difficulty": {
+        "easy": 7,
+        "medium": 1,
+        "hard": 0
+      }
+    },
+    {
+      "name": "Nepali Comedians",
+      "total": 6,
+      "difficulty": {
+        "easy": 5,
+        "medium": 1,
+        "hard": 0
+      }
+    },
+    {
+      "name": "Nepali YouTubers and Creators",
+      "total": 6,
+      "difficulty": {
+        "easy": 5,
+        "medium": 1,
+        "hard": 0
+      }
+    },
+    {
+      "name": "Nepali Movies",
+      "total": 8,
+      "difficulty": {
+        "easy": 7,
+        "medium": 1,
+        "hard": 0
+      }
+    },
+    {
+      "name": "Nepali Songs and Music",
+      "total": 8,
+      "difficulty": {
+        "easy": 7,
+        "medium": 1,
+        "hard": 0
+      }
+    },
+    {
+      "name": "Nepali Cricket",
+      "total": 8,
+      "difficulty": {
+        "easy": 7,
+        "medium": 1,
+        "hard": 0
+      }
+    },
+    {
+      "name": "Nepali Football",
+      "total": 6,
+      "difficulty": {
+        "easy": 5,
+        "medium": 1,
+        "hard": 0
+      }
+    },
+    {
+      "name": "Nepali Sports Personalities",
+      "total": 5,
+      "difficulty": {
+        "easy": 4,
+        "medium": 1,
+        "hard": 0
+      }
+    },
+    {
+      "name": "Nepali Cities",
+      "total": 12,
+      "difficulty": {
+        "easy": 10,
+        "medium": 2,
+        "hard": 0
+      }
+    },
+    {
+      "name": "Nepali Villages and Districts",
+      "total": 10,
+      "difficulty": {
+        "easy": 8,
+        "medium": 2,
+        "hard": 0
+      }
+    },
+    {
+      "name": "Nepali Mountains",
+      "total": 8,
+      "difficulty": {
+        "easy": 7,
+        "medium": 1,
+        "hard": 0
+      }
+    },
+    {
+      "name": "Nepali Tourist Destinations",
+      "total": 10,
+      "difficulty": {
+        "easy": 8,
+        "medium": 2,
+        "hard": 0
+      }
+    },
+    {
+      "name": "Nepali Temples and Landmarks",
+      "total": 8,
+      "difficulty": {
+        "easy": 7,
+        "medium": 1,
+        "hard": 0
+      }
+    },
+    {
+      "name": "Nepali Festivals",
+      "total": 13,
+      "difficulty": {
+        "easy": 11,
+        "medium": 2,
+        "hard": 0
+      }
+    },
+    {
+      "name": "Nepali Traditions and Culture",
+      "total": 10,
+      "difficulty": {
+        "easy": 8,
+        "medium": 2,
+        "hard": 0
+      }
+    },
+    {
+      "name": "Nepali Household Objects",
+      "total": 10,
+      "difficulty": {
+        "easy": 8,
+        "medium": 2,
+        "hard": 0
+      }
+    },
+    {
+      "name": "Nepali School and College Life",
+      "total": 8,
+      "difficulty": {
+        "easy": 7,
+        "medium": 1,
+        "hard": 0
+      }
+    },
+    {
+      "name": "Nepali Slang",
+      "total": 6,
+      "difficulty": {
+        "easy": 5,
+        "medium": 1,
+        "hard": 0
+      }
+    },
+    {
+      "name": "Nepali Gen Z Culture",
+      "total": 6,
+      "difficulty": {
+        "easy": 5,
+        "medium": 1,
+        "hard": 0
+      }
+    },
+    {
+      "name": "Nepali Memes and Internet Culture",
+      "total": 6,
+      "difficulty": {
+        "easy": 5,
+        "medium": 1,
+        "hard": 0
+      }
+    },
+    {
+      "name": "Nepali Relationships and Family",
+      "total": 10,
+      "difficulty": {
+        "easy": 8,
+        "medium": 2,
+        "hard": 0
+      }
+    },
+    {
+      "name": "Nepali Transportation",
+      "total": 8,
+      "difficulty": {
+        "easy": 7,
+        "medium": 1,
+        "hard": 0
+      }
+    },
+    {
+      "name": "Nepali Animals and Nature",
+      "total": 10,
+      "difficulty": {
+        "easy": 8,
+        "medium": 2,
+        "hard": 0
+      }
+    },
+    {
+      "name": "Nepali Brands and Products",
+      "total": 8,
+      "difficulty": {
+        "easy": 7,
+        "medium": 1,
+        "hard": 0
+      }
+    },
+    {
+      "name": "Everyday Global Objects",
+      "total": 12,
+      "difficulty": {
+        "easy": 10,
+        "medium": 2,
+        "hard": 0
+      }
+    }
+  ]
+}

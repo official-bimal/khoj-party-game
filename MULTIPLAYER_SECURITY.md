@@ -1,0 +1,13 @@
+# Multiplayer security
+
+Roles, word selection, votes, scoring and deadlines live on the server. `project` delivers a player's own card while awaiting their reveal acknowledgement, never the role array or other cards. Results publish roles only after completion. Card visibility in the UI requires a deliberate tap; a player can inspect their own pre-reveal network payload. This is not a leak of somebody else's card. Innocents legitimately receive the common word. Imposters never receive it before results (unless an optional hint itself is badly authored).
+
+Cookies are HttpOnly, SameSite Strict, room-path scoped, Secure in production. Sessions are 256-bit random; only SHA-256 hashes are stored. Request identities cannot be supplied in action bodies. PostgreSQL transactions serialize mutations. Votes, reveals and guesses reject duplicates. Unrelated sessions cannot access rooms. No cache stores API responses. Admin uses a server-only bearer token, compared in constant time, never bundled or persisted in client storage.
+
+Origin validation protects mutations. Zod validates settings, nicknames, guesses and imports; request body size is bounded. Room creation, polling, actions and admin attempts are rate-limited per process. Production MUST put distributed abuse controls at a trusted reverse proxy; do not trust unvalidated forwarded IP headers. The current limiter is not cluster-wide. No chat is provided, so no chat moderation or retained messages are needed.
+
+Rooms become inaccessible after two inactive hours or host closure. Persistence currently retains expired records; schedule a storage retention cleanup before launch. Host transfer is explicit. Disconnected hosts can reconnect; automatic host failover/kicking is not implemented. File mode is single-process development only and contains private server data; protect its filesystem. Production requires PostgreSQL and HTTPS. `ALLOW_FILE_STORAGE=true` is only for local tests.
+
+Local pass-the-phone is a cooperative shared-device mode. Roles live in temporary browser memory; a device owner using developer tools can inspect them. The design does not claim protection from a malicious shared-device owner. Secret text is absent from DOM and accessible names until shown, hidden on blur, absent from URLs/metadata/history, and never saved in IndexedDB. Disallow screenshots socially; browsers cannot prevent them reliably.
+
+Security tests cover projection secrecy, no token hashes in views, forged player indexes, cross-room sessions, duplicate votes, expiration, host authority and private REST endpoints. No external penetration test or production PostgreSQL concurrency/load test has been performed.

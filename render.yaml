@@ -1,0 +1,20 @@
+services:
+  - type: web
+    name: khoj-party-game
+    runtime: node
+    plan: free
+    region: singapore
+    buildCommand: npm ci --include=dev && npm run build
+    startCommand: npm start -- --hostname 0.0.0.0
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_VERSION
+        value: 24.19.0
+      - key: NEXT_TELEMETRY_DISABLED
+        value: "1"
+      - key: ALLOW_EPHEMERAL_ROOMS
+        value: "true"
+      - key: NEXT_PUBLIC_EPHEMERAL_ROOMS
+        value: "true"
+# No database is provisioned. Rooms are memory-only and reset on restart.
+# This avoids using the existing Customer OS database or any paid plan.
